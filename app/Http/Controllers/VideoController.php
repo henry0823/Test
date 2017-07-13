@@ -28,7 +28,7 @@ class VideoController extends Controller
 		return view('live', compact('sport'));
 	}
 
-	// 區域分類
+	// 頻道分類
 	public function video($sport)
 	{	
 		$detail = json_decode(Blog::find(6)->content, true);
@@ -37,7 +37,7 @@ class VideoController extends Controller
 		return view('list', compact('sport', 'tv'));
 	}
 
-	// 細部分類
+	// 播放器
 	public function video_show($sport, $channel)
 	{	
 		$detail = json_decode(Blog::find(6)->content, true);
