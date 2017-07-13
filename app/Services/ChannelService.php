@@ -16,7 +16,7 @@ class ChannelService
 			    $url[] = ($detail['listmatchs'][3]['listmatch'][$i]['zbUrl']);
 			    $tw = array_combine($title,$url);
 			}
-			return $tw;			
+			return $tw;	
 		}
 	}
 }
