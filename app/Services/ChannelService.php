@@ -24,9 +24,5 @@ class ChannelService
 			echo 123;
 			echo 789;
 		}
-		else
-		{
-			echo 33456778;
-		}
 	}
 }
