@@ -18,5 +18,9 @@ class ChannelService
 			}
 			return $tw;	
 		}
+		else
+		{
+			echo 999;
+		}
 	}
 }
