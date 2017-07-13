@@ -21,6 +21,8 @@ class ChannelService
 		else
 		{
 			abort(404);
+			echo 123;
+			echo 789;
 		}
 	}
 }
