@@ -20,6 +20,7 @@ class ChannelService
 		}
 		else
 		{
+			echo 123;
 			echo 789;
 		}
 	}
