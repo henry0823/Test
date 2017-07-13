@@ -34,6 +34,7 @@ class VideoController extends Controller
 	{	
 		$detail = json_decode(Blog::find(6)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
+		echo '123';
 
 		return view('list', compact('sport', 'tv'));
 	}
@@ -43,6 +44,7 @@ class VideoController extends Controller
 	{	
 		$detail = json_decode(Blog::find(6)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
+		echo '234';
 
 		return view('tv', compact('sport', 'tv', 'channel'));
 	}
