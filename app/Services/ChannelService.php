@@ -21,6 +21,7 @@ class ChannelService
 		else
 		{
 			echo 345;
+			echo 789;
 		}
 	}
 }
