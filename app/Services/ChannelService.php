@@ -18,5 +18,10 @@ class ChannelService
 			}
 			return $tw;	
 		}
+		else
+		{
+			echo 123;
+			echo 234;
+		}
 	}
 }
