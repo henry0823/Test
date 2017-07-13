@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\VideoList;
 
 class HomeController extends Controller
 {
@@ -25,4 +26,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function list($sport, $tw)
+    {
+        dd($sport,$tw);
+        return view('live',compact('sport', 'tw'));
+    }
+
 }

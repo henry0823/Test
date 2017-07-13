@@ -11,7 +11,7 @@ use App\BlogComment;
 use DB;
 
 class BlogController extends Controller
-{	
+{
 	public function index($user)
 	{	
 		$user = session('user');
@@ -24,7 +24,7 @@ class BlogController extends Controller
 		return view('guest.blog.index', compact('user', 'blogs'));			
 	}
 
-	public function show($user,Blog $blog)
+	public function show($user, Blog $blog)
 	{
 		$user = session('user');
 
@@ -80,9 +80,6 @@ class BlogController extends Controller
 
 		return redirect('/'.$user.'/blog/'.$blog->id);
 	}
-
-
-
 
 
 

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/live', 'VideoController@video_list');
+Route::get('/live/{sport}/', 'VideoController@video');
+Route::get('/live/{sport}/{channel}', 'VideoController@video_show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -99,7 +103,6 @@ Route::group(['middleware' => 'auth'], function()
 		});
 	});
 });
-
 
 
 
