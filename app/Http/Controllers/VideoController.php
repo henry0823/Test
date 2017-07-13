@@ -25,7 +25,6 @@ class VideoController extends Controller
 		{
 		    $sport[] = ($detail['listmatchs'][$i]['ball'].' ');
 		}
-	
 		return view('live', compact('sport'));
 	}
 
