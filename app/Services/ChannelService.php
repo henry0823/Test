@@ -18,9 +18,5 @@ class ChannelService
 			}
 			return $tw;	
 		}
-		else
-		{
-			abort(404);
-		}
 	}
 }
