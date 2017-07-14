@@ -33,7 +33,7 @@ class VideoController extends Controller
 	{	
 		$detail = json_decode(Blog::find(6)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
-		echo 123;
+		echo 33333;
 
 		return view('list', compact('sport', 'tv'));
 	}
