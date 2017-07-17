@@ -13,7 +13,7 @@ class ChannelService
 		    $sports[] = ($detail['listmatchs'][$i]['ball']);
 		}
 		return $sports;
-	}
+	}123
 
 	public function channel($sport, $detail)
 	{
