@@ -20,7 +20,7 @@ class VideoController extends Controller
 	{
 		$detail = json_decode(Data::find(1)->content, true);
 		$sport_count = count($detail['listmatchs']);
-		
+
 		for($i = 0; $i < $sport_count; $i++)
 		{
 		    $sport[] = ($detail['listmatchs'][$i]['ball'].' ');
@@ -29,7 +29,7 @@ class VideoController extends Controller
 	}
 
 	// 頻道分類
-	public function video($sport)
+	public function video_channel($sport)
 	{	
 		$detail = json_decode(Data::find(1)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);

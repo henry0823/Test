@@ -57,7 +57,12 @@ class GetData extends Command
         $video->sso();
         // 取得列表
         $list = $video->getList();
-
+        // 如果沒爬到資料則重新爬
+        while(!$list)
+        {
+            $list = $video->getList();
+        }
+        //爬到資料後存進資料庫
         $data = array(
                 'content' => preg_replace('/\s(?=)/', '', $list),
                 'updated_at' => \Carbon\Carbon::now('Asia/Taipei'),
