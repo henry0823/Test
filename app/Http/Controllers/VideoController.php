@@ -19,13 +19,9 @@ class VideoController extends Controller
 	public function video_list()
 	{
 		$detail = json_decode(Data::find(1)->content, true);
-		$sport_count = count($detail['listmatchs']);
+		$sports = $this->chanServ->sidebar($detail);
 
-		for($i = 0; $i < $sport_count; $i++)
-		{
-		    $sport[] = ($detail['listmatchs'][$i]['ball'].' ');
-		}
-		return view('live._list', compact('sport'));
+		return view('layouts.video', compact('sports'));
 	}
 
 	// 頻道分類
@@ -33,8 +29,9 @@ class VideoController extends Controller
 	{	
 		$detail = json_decode(Data::find(1)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
+		$sports = $this->chanServ->sidebar($detail);
 
-		return view('live._channel', compact('sport', 'tv'));
+		return view('live._channel', compact('sport', 'tv', 'sports'));
 	}
 
 	// 播放器
@@ -42,8 +39,8 @@ class VideoController extends Controller
 	{	
 		$detail = json_decode(Data::find(1)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
+		$sports = $this->chanServ->sidebar($detail);
 
-		return view('live._tv', compact('sport', 'tv', 'channel'));
+		return view('live._tv', compact('sport', 'tv', 'channel', 'sports'));
 	}
-
 }

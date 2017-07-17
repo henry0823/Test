@@ -4,6 +4,17 @@ namespace App\Services;
 
 class ChannelService
 {
+	public function sidebar($detail)
+	{
+		$sport_count = count($detail['listmatchs']);
+		
+		for($i = 0; $i < $sport_count; $i++)
+		{
+		    $sports[] = ($detail['listmatchs'][$i]['ball']);
+		}
+		return $sports;
+	}
+
 	public function channel($sport, $detail)
 	{
 		$foot_count = count($detail['listmatchs'][0]['listmatch']);
