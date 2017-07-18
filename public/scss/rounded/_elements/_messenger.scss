@@ -1,0 +1,160 @@
+/* 6.9 Messenger
+----------------------------------------------------------*/
+
+/* Messenger Toggle */
+#messenger-toggle {
+    @include button-clear;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    @include border-radius(50%);
+    z-index: 950;
+    color: #fff;
+    line-height: 46px;
+    background-color: $color-primary;
+    cursor: pointer;
+    @include box-shadow(0 0 30px 0 rgba(#000,0.15));
+
+    @media #{$screen-sm} {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    &:before, &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: ' ';
+        @include border-radius(50%);
+    }
+
+    &:before {
+        background-color: $color-primary;
+        @include animation(messengerToggleAnimation 2s infinite);
+        z-index: 0;
+
+         @include keyframes(messengerToggleAnimation) {
+            0% { @include scale(0); @include opacity(0.7); }
+            100% { @include scale(2); @include opacity(0); }
+        }
+    }
+
+    &:after {
+        background-color: #fff;
+        @include transition-secondary;
+        z-index: 1;
+        @include opacity(0);
+        @include scale(0.9);
+    }
+
+    &:hover, &:focus, &:active, &:focus:active {
+        outline: none;
+    }
+
+    &.active {
+        color: $color-primary;
+
+        &:after {
+            background-color: #fff;
+            @include scale(1.1);
+            @include opacity(1);
+        }
+
+        &:before {
+            @include animation(none);
+        }
+    }
+
+    > i {
+        position: relative;
+        font-size: 17px;
+        z-index: 2;
+    }
+}
+
+/* Messenger */
+
+#messenger {
+    position: fixed;
+    bottom: 110px;
+    right: 54px;
+    background-color: #fff;
+    @include box-shadow(0 0 50px 0 rgba(#000,0.1));
+    @include border-radius(10px 10px 0 10px);
+    width: 420px;
+    z-index: 960;
+    @include transition-secondary;
+    visibility: hidden;
+    @include opacity(0);
+    @include translateY(-10px);
+
+    @media #{$screen-sm} {
+        right: 39px;
+        bottom: 75px;
+        max-height: calc(100vh - 100px);
+        overflow: auto;
+    }
+
+    @media #{$screen-xs} {
+        width: calc(100% - 80px);
+    }
+
+
+    &.show {
+        visibility: visible;
+        @include opacity(1);
+        @include translateY(0);
+    }
+
+    &:after {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        content: ' ';
+        border-width: 0 20px 20px 0;
+        border-color: transparent #fff transparent transparent;
+    }
+    
+    .messenger-intro {
+        background-color: $color-light;
+        border-bottom: 1px solid $color-line;
+        padding: 1.5rem;
+        @include border-radius(10px 10px 0 0);
+        @include pie-clearfix;
+
+        .messenger-intro-image {
+            float: left;
+            width: 42px;
+            height: 42px;
+            border: 2px solid #fff;
+            @include border-radius(50%);
+        }
+
+         .messenger-intro-content {
+            margin-left: 64px;
+            font-size: 0.9rem;
+
+            > p {
+                color: $color-muted;
+                margin-bottom: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            > footer {
+                font-family: $font-secondary;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .messenger-form {
+        padding: 1.5rem;
+    }
+}

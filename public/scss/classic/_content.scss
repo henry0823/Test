@@ -1,0 +1,98 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 4. CONTENT
+/* ----------------------------------------------------------------------------- */
+
+#content {
+	position: relative;
+    margin-left: 460px;
+    overflow: hidden;
+
+    @media #{$screen-xl} {
+        margin-left: 360px;
+    }
+
+    @media #{$screen-lg} {
+        margin-left: 0;
+        margin-top: 68px;
+    }
+
+}
+
+section, .section {
+	position: relative;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    &.cover {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.section-sm {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    &.protrude {
+        z-index: 2;
+    }
+}
+
+/* Section Double */
+
+.section-double {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    > .row {
+        height: 30vw;
+        @include align-items(center);
+
+        @media #{$screen-lg} {
+            height: 60vh;
+        }
+
+        @media #{$screen-sm} {
+            height: auto;
+        }
+
+        > .image {
+            height: 100%;
+
+            @media #{$screen-sm} {
+                height: 60vh;
+            }
+
+            &.right > .bg-image {
+                background-position: left center;
+            }
+
+            &.left > .bg-image {
+                background-position: right center;
+            }
+
+            .btn-play {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include translate3d(-50%,-50%,0);
+            }
+        }
+
+        > .content {
+            padding: 4rem 8%;
+        }
+    }
+}
+
+@import "_content/blog";
+@import "_content/features";
+@import "_content/intro";
+@import "_content/members";
+@import "_content/other";
+@import "_content/page-title";
+@import "_content/product";
+@import "_content/steps";
+@import "_content/timeline";
+
+

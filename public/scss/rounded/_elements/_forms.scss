@@ -1,0 +1,199 @@
+/* 6.6 Forms
+----------------------------------------------------------*/
+
+/* Form Group */
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+/* Input Group */
+
+.input-group-btn:not(:first-child)>.btn, .input-group-btn:not(:first-child)>.btn-group {
+    margin-left: -2px;
+}
+
+/* Form Control */
+
+.form-control {
+    @include appearance(none);
+    border-color: $color-line;
+    font-weight: 300;
+    padding: 1rem;
+    border: 2px solid $color-line;
+    @include box-shadow(inset 1px 1px 2px 0 rgba($color-dark,0.06));
+    @include border-radius(0.2rem);
+
+    &:focus {
+        border-color: $color-primary;
+        @include box-shadow(inset 1px 1px 2px 0 rgba($color-primary,0.1));
+    }
+    &.error {
+        border-color: tint($color-red,70%);
+        background-color: tint($color-red,98%);
+    }
+
+    @include input-placeholder {
+        color: inherit;
+        @include opacity(0.5);
+    }
+}
+
+.form-control-sm {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.form-control-lg {
+    padding: 1.75rem;
+    font-size: 1.2rem;
+    @include border-radius(0.4rem);
+}
+
+
+.dark .form-control {
+	background-color: transparent;
+	border-color: $color-line-light;
+	color: #fff;
+}
+
+/* Select */
+
+.select-wrapper {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        display: block;
+        @include translate3d(0,-50%,0);
+        right: 13px;
+        font-size: 0.8rem;
+        color: $color-muted;
+        font-family: themify;
+        content:"\e62a";
+    }
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.6rem + 2px)
+}
+
+/* Label */
+
+label {
+    font-family: $font-secondary;
+    font-weight: 600;
+}
+
+/* Check */
+
+.form-check-label {
+    padding-left: 1.75rem;
+}
+
+/* Checkbox */
+
+input[type="checkbox"] {
+    display: none;
+
+    & + span {
+        position: relative;
+        font-weight: 400;
+        font-family: $font-secondary;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-left: -1.75rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 1px solid $color-line;
+            @include transition(all 0.3s ease-out);
+            display: block;
+            content: ' ';
+        }
+        &:after {
+            position: absolute;
+            top: 0.05rem;
+            left: 0.3rem;
+            margin-left: -1.75rem;
+            font-family: themify;
+            font-weight: 800;
+            content: '\e64c';
+            color: #fff;
+            font-size: 0.75rem;
+            display: block;
+            @include transition(all 0.3s ease-out);
+            @include opacity(0);
+        }
+    }
+
+    &:checked + span {
+        &:before {
+            background-color: $color-primary;
+            border-color: $color-primary;
+        }
+        &:after {
+            @include opacity(1);
+        }
+    }
+}
+
+/* Radio */
+
+input[type="radio"] {
+    display: none;
+
+    & + span {
+        position: relative;
+        font-weight: 400;
+        font-family: $font-secondary;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            margin-left: -1.75rem;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            @include border-radius(50%);
+            border: 1px solid shade($color-line,10%);
+            background-color: #fff;
+            display: block;
+            content: ' ';
+        }
+        &:after {
+            position: absolute;
+            top: 0.25rem;
+            left: 0.25rem;
+            margin-left: -1.75rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            content:" ";
+            background-color: $color-primary;
+            @include border-radius(50%);
+            display: block;
+            @include transition(all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275));
+            @include scale(0);
+            @include opacity(0);
+        }
+    }
+
+    &:checked + span {
+        &:after {
+            @include scale(1);
+            @include opacity(1);
+        }
+    }
+}
+
+.dark {
+    input[type="checkbox"] + span:before {
+        border-color: $color-line-light;
+    }
+    input[type="radio"] + span:before {
+        border-color: $color-line-light;
+    }
+}

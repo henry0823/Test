@@ -1,0 +1,56 @@
+/* 4.8 Steps
+----------------------------------------------------------*/
+
+.steps-row {
+    .step {
+        position: relative;
+        padding-top: 1rem;
+
+        @media #{$screen-sm} {
+            margin-bottom: 1rem;
+        }
+
+        .icon {
+            margin-bottom: 2rem;
+        }
+
+        &:not(:last-child) {
+            &:after {
+                position: absolute;
+                top: calc(50% - 20px);
+                left: calc(100% - 20px);
+                width: 40px;
+                height: 40px;
+                background-color: $color-light;
+                line-height: 40px;
+                text-align: center;
+                font-family: 'themify';
+                content: '\e649';
+                font-size: 1.1rem;
+                color: $color-light-medium;
+                @include border-radius(50%);
+                @include animation(stepArrowAnimation 2s infinite);
+                display: inline-block;
+
+                @media #{$screen-sm} {
+                    top: calc(100% - 10px);
+                    left: calc(50% - 20px);
+                    content: '\e64b';
+                    @include animation(stepArrowAnimationSm 2s infinite);
+                }
+            }
+        }
+    }
+}
+
+@include keyframes(stepArrowAnimation) {
+    0% { @include translateX(-5px); }
+    50% { @include translateX(5px); }
+    100% { @include translateX(-5px); }
+}
+
+@include keyframes(stepArrowAnimationSm) {
+    0% { @include translateY(-5px); }
+    50% { @include translateY(5px); }
+    100% { @include translateY(-5px); }
+}

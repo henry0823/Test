@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- Title -->
-<title>Video</title>
+<title>LIVE</title>
 <!-- CSS Plugins -->
 <link rel="stylesheet" href="/css/plugins-bundle.css" />
 <!-- CSS Icons -->
@@ -15,19 +15,16 @@
 <link rel="stylesheet" href="/plugins/flag-icon-css/css/flag-icon.min.css" />
 <!-- CSS Theme -->
 <link id="theme" rel="stylesheet" href="/css/themes/slab/theme_orange-blue.min.css" />
-
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <body>
 <!-- Header -->
 <header id="header">
     <!-- Navigation -->
     <nav id="nav-main">
         <ul class="nav nav-main-vertical">
-            <li><a href="#intro"><i class="li-home"></i>Start</a></li>
-            <li><a href="#product"><i class="li-laptop"></i>Product</a></li>
-            <li><a href="#features"><i class="li-vote"></i>Features</a></li>
-            <li><a href="#reviews"><i class="li-feedback"></i>Reviews</a></li>
-            <li><a href="#contact"><i class="li-email"></i>Contact</a></li>
-            <li class="more"><a href="#" data-toggle="nav-additional"><i class="li-gift"></i>Live</a></li>
+            <li><a href="/live"><i class="li-home"></i>首頁</a></li>
+            <li class="more"><a href="#" data-toggle="nav-additional"><i class="li-laptop"></i>直播</a></li>
         </ul>
     </nav>
 </header>
@@ -52,8 +49,20 @@
 
 <!-- Navigation Additional -->
 <nav id="nav-additional" class="bg-dark dark">
-    @foreach($sports as $s)
-        <h6><a href="/live/{{ $s }}">{{ $s }}</a></h6>
+    <!-- 賽事列表 -->
+    @foreach($sports as $key => $s)
+        <h5 id="{{ $key }}" style="margin-bottom:5px; margin-top:10px;">{{ $s }}</h5>
+        @if($channel[$key] != null)
+            <!-- 直播頻道 -->
+            @foreach($channel[$key] as $c)
+                <div style="display:none" id="channel{{ $key }}">
+                    <a href="/live/{{ $s }}/{{ $c['zbTitle'] }}">
+                    &nbsp&nbsp&nbsp{{ $c['zbTitle'] }}</a>
+                </div>
+            @endforeach
+        @else
+            <div style="display:none" id="channel{{ $key }}">&nbsp&nbsp&nbsp目前無直播</div>
+        @endif
     @endforeach
 </nav>
 
@@ -69,6 +78,16 @@
         </div>
     </div>
 </div>
+
+@foreach($sports as $key => $s)
+    <script>
+    $(document).ready(function(){
+        $("#{{ $key }}").click(function(){
+            $("[id=channel{{ $key }}]").toggle();
+        });
+    });
+    </script>
+@endforeach
 
 <!-- JS Plugins -->
 <script src="/plugins/jquery/dist/jquery.min.js"></script>
@@ -90,9 +109,6 @@
 <!-- JS Core -->
 <script src="/js/core.js"></script>
 
-
-<!-- JS Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
 </body>
 
 </html>

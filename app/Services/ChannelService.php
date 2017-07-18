@@ -15,6 +15,15 @@ class ChannelService
 		return $sports;
 	}
 
+	public function sidebar_detail($sports, $detail)
+	{
+		foreach($sports as $key => $s)
+		{
+			$channel[] = ($detail['listmatchs'][$key]['listmatch']);
+		}
+		return $channel;
+	}
+
 	public function channel($sport, $detail)
 	{
 		$foot_count = count($detail['listmatchs'][0]['listmatch']);

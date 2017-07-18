@@ -10,3 +10,4 @@ Homestead.yaml
 npm-debug.log
 .env
 /app/Services/parse.php
+/app/Console/Commands/GetData.php

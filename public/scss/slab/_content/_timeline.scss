@@ -1,0 +1,187 @@
+/* 4.9 Timeline
+----------------------------------------------------------*/
+
+.timeline {
+    position: relative;
+    padding: 4rem 0;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 4px);
+        bottom: 0;
+        width: 8px;
+        background-color: darken(desaturate(adjust-hue($color-light, -2.8571), 1.3468), 3.1373);
+        @include border-radius(4rem);
+        content: ' ';
+
+        @media #{$screen-xs} {
+            left: 0;
+        }
+    }
+
+    .timeline-event {
+        position: relative;
+        margin-bottom: 2rem;
+        @include pie-clearfix;
+
+        @media #{$screen-xs} {
+            padding-left: 60px;
+        }
+
+        .timeline-event-point {
+            position: absolute;
+            top: 0;
+            left: calc(50% - 17px);
+            width: 34px;
+            height: 34px;
+            @include border-radius(50%);
+            background-color: $color-primary;
+            border: 8px solid #fff;
+
+            @media #{$screen-xs} {
+                top: 1.6rem;
+                left: calc(0px - 14px);
+            }
+
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                @include border-radius(50%);
+                content: ' ';
+                background-color: $color-primary;
+                @include animation(timelinePointAnimation 2s infinite);
+                z-index: 0;
+
+                @include keyframes(timelinePointAnimation) {
+                    0% { @include scale(0); @include opacity(0.8); }
+                    100% { @include scale(2.5); @include opacity(0); }
+                }
+            }
+        }
+
+        &.animated {
+            visibility: visible;
+
+            .timeline-event-content {
+                @include transition-delay(0.1s);
+            }
+
+            &.visible {
+                .timeline-event-content {
+                    @include opacity(1);
+                    @include translateX(0);
+                }
+            }
+        }
+
+        .timeline-event-date,
+        .timeline-event-content {
+            width: 42%;
+
+            @media #{$screen-xs} {
+                width: auto;
+            }
+        }
+
+        .timeline-event-date {
+            float: left;
+            margin-top: 4px;
+            text-align: right;
+            font-family: $font-secondary;
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: $color-muted;
+
+            @media #{$screen-xs} {
+                float: none;
+                text-align: left;
+            }
+        }
+
+        .timeline-event-content {
+            position: relative;
+            float: right;
+            margin-top: 17px;
+            text-align: left;
+            background-color: $color-light;
+            @include border-radius(0 10px 10px 10px);
+            @include transition-secondary;
+            @include opacity(0);
+            @include translateX(10px);
+
+            @media #{$screen-xs} {
+                float: none;
+            }
+
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 100%;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 20px 20px 0;
+                border-color: transparent $color-light transparent transparent;
+                content: ' ';
+            }
+
+            .timeline-event-text {
+                padding: 2rem;
+
+                > *:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .timeline-event-image {
+                @include border-radius(0 0 10px 10px);
+            }
+        }
+
+        &:nth-child(2n) {
+            .timeline-event-point {
+                background-color: $color-secondary;
+                &:after {
+                    background-color: $color-secondary;
+                }
+            }
+
+            .timeline-event-date {
+                float: right;
+                text-align: left;
+
+                @media #{$screen-xs} {
+                    float: none;
+                }
+            }
+
+             .timeline-event-content {
+                float: left;
+                text-align: right;
+                @include border-radius(10px 0 10px 10px);
+                @include translateX(-10px);
+
+                @media #{$screen-xs} {
+                    @include border-radius(0 10px 10px 10px);
+                }
+
+                &:after {
+                    left: 100%;
+                    border-width: 20px 20px 0 0;
+                    border-color: $color-light transparent transparent transparent;
+
+                    @media #{$screen-xs} {
+                        right: 100%;
+                        left: auto;
+                        border-width: 0 20px 20px 0;
+                        border-color: transparent $color-light transparent transparent;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,149 @@
+/* 6.13 Other
+----------------------------------------------------------*/
+
+/* Logo */
+
+.logo-primary {
+    position: relative;
+    font-family: $font-secondary;
+    font-size: 3rem;
+    font-weight: 400;
+    display: inline-block;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-primary;
+        @include border-radius(36px);
+        content: ' ';
+        @include transition-secondary;
+    }
+
+    &.logo-sm {
+        height: 64px;
+        width: 64px;
+        line-height: 64px;
+        font-size: 2.5rem;
+
+        &:before {
+            @include border-radius(28px);
+        }
+    }
+
+    &.logo-xs {
+        height: 48px;
+        width: 48px;
+        line-height: 48px;
+        font-size: 2rem;
+
+        &:before {
+            @include border-radius(20px);
+        }
+    }
+
+    > span {
+        position: relative;
+        z-index: 1;
+    }
+
+    &:hover, &:focus {
+        color: #fff;
+
+        &:before {
+            @include scale(1.1);
+        }
+    }
+
+    &.logo-white {
+        color: $color-primary;
+
+        &:before {
+            background-color: #fff;
+        }
+
+        &:hover, &:focus {
+            color: $color-primary;
+        }
+    }
+}
+    
+/* Separator */
+
+hr {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.dark hr {
+    border-color: $color-line-light;
+}
+
+/* Shapes */
+
+.shape {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+
+    &.circle {
+        @include border-radius(50%);
+    }
+
+    &.square {
+        @include border-radius(5px);
+    }
+}
+
+/* Close */
+
+.close {
+    color: inherit;
+    text-shadow: none;
+    @include opacity(0.6);
+    font-size: 14px;
+    @include transition-primary;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        outline: none;
+        color: inherit;
+        @include opacity(1);
+    }
+}
+.dark .close {
+    color: #fff;
+}
+
+/* PayPal */
+
+.paypal-donate {
+    > input, > img { 
+        display: none; 
+    }
+}
+
+/* Go back */
+
+.go-back {
+    margin-right: 0.75rem;
+    color: $color-muted;
+    display: inline-block;
+
+    &:hover, &:focus {
+        color: $color-primary;
+        @include translateX(-5px);
+    }
+}
+
+/* Images */
+
+.img-thumbnail, .rounded {
+    @include border-radius(0.75rem);
+}

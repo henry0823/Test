@@ -1,0 +1,180 @@
+/* 4.7 Product
+----------------------------------------------------------*/
+
+/* Product Container */
+
+.product-container {
+    position: relative;
+    display: inline-block;
+    margin: 2rem 0;
+
+    @media #{$screen-xl} {
+        max-width: 80%;
+    }
+
+    @media #{$screen-md} {
+        max-width: 50%;
+    }
+
+    @media #{$screen-sm} {
+        max-width: none;
+    }
+
+    .product-feature {
+        position: absolute;
+        text-align: left;
+
+        &:hover {
+            z-index: 2;
+        }
+
+        .product-pointer {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            color: #fff;
+            line-height: 42px;
+            text-align: center;
+            font-size: 1.3rem;
+            display: inline-block;
+            background-color: $color-secondary;
+            @include border-radius(50%);
+            cursor: pointer;
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                @include border-radius(50%);
+                content: ' ';
+            }
+
+            &:before {
+                background-color: #fff;
+                @include opacity(0);
+                @include scale(0.9);
+                visibility: hidden;
+                @include transition-secondary;
+                z-index: 2;
+            }
+
+            &:after {
+                background-color: $color-secondary;
+                @include animation(productPointerAnimation 2s infinite);
+                z-index: 0;
+
+                @include keyframes(productPointerAnimation) {
+                    0% { @include scale(0); @include opacity(0.7); }
+                    100% { @include scale(2); @include opacity(0); }
+                }
+            }
+
+            > i {
+                position: relative;
+                z-index: 3;
+            }
+
+            &:hover {
+                &:before {
+                    background-color: #fff;
+                    @include box-shadow(1px 1px 20px 0 rgba(#000,0.1));
+                    @include scale(1.1);
+                    visibility: visible;
+                    @include opacity(1);
+                }
+
+                > i {
+                    color: $color-secondary;
+                }
+
+                & + .product-popup {
+                    @include opacity(1);
+                    visibility: visible;
+                    @include translateY(0);
+                }
+            }
+        }
+
+        .product-popup {
+            position: absolute;
+            bottom: calc(100% + 40px);
+            width: 300px;
+            @include transition-secondary;
+            visibility: hidden;
+            @include translateY(-5px);
+            @include opacity(0);
+            font-size: 0.95rem;
+            padding-bottom: 20px;
+
+            @media #{$screen-sm} {
+                display: none;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: 100%;
+                width: 30px;
+                height: 2px;
+                content: ' ';
+                background-color: $color-secondary;
+            }
+
+            &.left {
+                text-align: right;
+                right: 70px;
+                @include border-radius(15px 15px 0 15px);
+
+                &:before {
+                    @include transform-origin(top,left);
+                    @include rotate(45deg);
+                    left: 100%;
+                }
+
+                &:after {
+                    right: 0;
+                }
+            }
+
+            &.right {
+                left: 70px;
+                @include border-radius(15px 15px 15px 0);
+
+                &:before {
+                    @include transform-origin(top,right);
+                    @include rotate(-45deg);
+                    right: 100%;
+                }
+
+                &:after {
+                    left: 0;
+                }
+            }
+
+            .popup-image {
+                @include border-radius(50%);
+                max-width: 100px;
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
+
+.dark .product-container .product-feature .product-popup {
+    background-color: $color-secondary;
+
+    &.left {
+        &:after {
+            border-color: transparent $color-secondary transparent transparent;
+        }
+    }
+
+    &.right {
+        &:after {
+            border-color: $color-secondary transparent transparent transparent;
+        }
+    }
+}

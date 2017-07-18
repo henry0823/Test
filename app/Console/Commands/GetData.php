@@ -44,7 +44,7 @@ class GetData extends Command
         // 網頁位置
         $video->mainUrl = 'ju999.net';
         // 帳號
-        $video->txtUser = 'kb66183';
+        $video->txtUser = '';
         // 密碼
         $video->txtPassword = 'QAZwsx888';
         // 取得 index url 並指向

@@ -1,0 +1,68 @@
+@charset 'UTF-8';
+/* -----------------------------------------------------------------------------
+
+Hajs - Hajs - Modern Multi-Purpose Landing Page Template
+
+File:			Base SCSS File (Rounded)
+Version:        1.0
+Last change:    28/02/17 
+Author:			Suelo 
+
+Table of Contents:
+
+1. Setup
+2. Basic
+3. Header 
+4. Content 
+-- 4.1 Blog
+-- 4.2 Features
+-- 4.3 Intro
+-- 4.4 Members
+-- 4.5 Other
+-- 4.6 Page Title
+-- 4.7 Product
+-- 4.8 Steps
+-- 4.9 Timeline
+5. Footer
+6. Elements 
+-- 6.1 Alerts
+-- 6.2 Backgrounds
+-- 6.3 Badges
+-- 6.4 Buttons
+-- 6.5 Carousel
+-- 6.6 Forms 
+-- 6.7 Icons
+-- 6.8 Loader
+-- 6.9 Messenger
+-- 6.10 Modals
+-- 6.11 Navigations
+-- 6.12 Notification Bar
+-- 6.13 Other
+-- 6.14 Pagination
+-- 6.15 Testimonials
+-- 6.16 Typography
+7. Widgets 
+8. Animations 
+
+-------------------------------------------------------------------------------- */
+
+// Import CSS3 Mixins 
+@import "../../../node_modules/compass-mixins/lib/animation/core";
+@import "../../../node_modules/compass-mixins/lib/compass";
+
+// Import Fonts 
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,600|Roboto:300,400');
+
+// Import Config 
+@import "config";
+
+// Import Styles
+@import "setup";
+@import "basics";
+@import "header";
+@import "content";
+@import "footer";
+@import "elements";
+@import "widgets";
+@import "animations";
+

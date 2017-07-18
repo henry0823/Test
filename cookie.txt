@@ -4,8 +4,8 @@
 
 #HttpOnly_ju999.net	FALSE	/	FALSE	0	ASP.NET_SessionId	qlmiobf32qgx52niaxmzyt35
 .ju999.net	TRUE	/	FALSE	1531733049	visid_incap_1164136	HJAo+eT4SXCeFSkbDHsvTTR+aFkAAAAAQkIPAAAAAAA6R0m9HiTXiksJbdupCqz6
-.ju999.net	TRUE	/	FALSE	0	incap_ses_636_1164136	sPNQP5TSGht8aHDv3YbTCM9pbFkAAAAAGfsZcuJ2FwiLuLn5uKN22w==
-ju999.net	FALSE	/	FALSE	0	KB66183-21	2017-7-17 15:40:01
+.ju999.net	TRUE	/	FALSE	0	incap_ses_636_1164136	3e0wNOMTkRBX6Prv3YbTCKeRbFkAAAAAEYo+QU2kPd7TfxZ7mEt9gA==
+ju999.net	FALSE	/	FALSE	0	KB66183-21	2017-7-18 13:49:58
 ju999.net	FALSE	/	FALSE	0	CookieIsApp	0
 ju999.net	FALSE	/	FALSE	0	StarLevel	
 ju999.net	FALSE	/	FALSE	1502865900	xxx	b5f44f61-2e8f-498a-a1cb-6ae6967c827a
@@ -15,7 +15,7 @@ ball.tj777.net	FALSE	/	FALSE	0	AspxAutoDetectCookieSupport	1
 ball.tj777.net	FALSE	/	FALSE	0	refrerVal21	http://ju999.net
 ball.ju999.net	FALSE	/	FALSE	0	AspxAutoDetectCookieSupport	1
 .ju999.net	TRUE	/	FALSE	1531471849	visid_incap_1085256	p+U7UOjMRNebc9n4xhfXP1R+aFkAAAAAQUIPAAAAAAClYj+tFEMZeUD8HyBR+GCC
-.ju999.net	TRUE	/	FALSE	0	incap_ses_401_1085256	j1ZtEomDQHdRJCMsg6SQBRQ1bFkAAAAAQQS5bC765FCGyM7C3BsZeQ==
+.ju999.net	TRUE	/	FALSE	0	incap_ses_401_1085256	bMVVV2XxiCFCL74tg6SQBS2VbFkAAAAAbEWuGarddLk63c3QE2X6vg==
 #HttpOnly_ball.ju999.net	FALSE	/	FALSE	0	ASP.NET_SessionId	4kvjtn1ikan3vzer2ynmnp1d
 ball.ju999.net	FALSE	/	FALSE	0	refrerVal21	http://ju999.net
 #HttpOnly_.ju77.net	TRUE	/	FALSE	1531556987	__cfduid	dda55e1113f759c834d47159af1b8b5aa1500020987
@@ -25,4 +25,4 @@ ball.ju77.net	FALSE	/	FALSE	0	refrerVal21	http://ju999.net
 .ju999.net	TRUE	/	FALSE	0	incap_ses_432_1164136	pv2zT1qZySs1YAijgMb+BRsua1kAAAAADa6jHWEYAKnYwIwgiWl/qA==
 .ju999.net	TRUE	/	FALSE	0	incap_ses_635_1085256	mxX9fxxcs0dHgxxJWPnPCD8ia1kAAAAAR1wWLkejCuk/ZJdbBnFGTg==
 .ju999.net	TRUE	/	FALSE	0	incap_ses_462_1164136	rfVmR1NaDQiKQeJbm1ppBk82a1kAAAAAWN86FCiD4bhzb5suKwEwGg==
-.ju999.net	TRUE	/	FALSE	0	incap_ses_461_1164136	HOB4HHObKGfm/KzCqs1lBm9gbFkAAAAAR9YzAOj6sCoqGJHQOFuzNg==
+.ju999.net	TRUE	/	FALSE	0	incap_ses_461_1164136	yOqyH+tQajyKEenIqs1lBoWhbVkAAAAAGeqOO8xcJ5YIfXrIGQe20w==

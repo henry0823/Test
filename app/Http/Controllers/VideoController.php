@@ -20,8 +20,9 @@ class VideoController extends Controller
 	{
 		$detail = json_decode(Data::find(1)->content, true);
 		$sports = $this->chanServ->sidebar($detail);
-
-		return view('layouts.video', compact('sports'));
+		$channel = $this->chanServ->sidebar_detail($sports, $detail);
+        
+		return view('layouts.video', compact('sports', 'channel'));
 	}
 
 	// 頻道分類
@@ -30,17 +31,19 @@ class VideoController extends Controller
 		$detail = json_decode(Data::find(1)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
 		$sports = $this->chanServ->sidebar($detail);
+		$channel = $this->chanServ->sidebar_detail($sports, $detail);
 
-		return view('live._channel', compact('sport', 'tv', 'sports'));
+		return view('live._channel', compact('sport', 'tv', 'sports', 'channel'));
 	}
 
 	// 播放器
-	public function video_show($sport, $channel)
+	public function video_show($sport, $chan)
 	{	
 		$detail = json_decode(Data::find(1)->content, true);
 		$tv = $this->chanServ->channel($sport, $detail);
 		$sports = $this->chanServ->sidebar($detail);
+		$channel = $this->chanServ->sidebar_detail($sports, $detail);
 
-		return view('live._tv', compact('sport', 'tv', 'channel', 'sports'));
+		return view('live._tv', compact('sport', 'tv', 'chan', 'sports', 'channel'));
 	}
 }

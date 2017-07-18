@@ -1,0 +1,29 @@
+/* 4.2 Features
+----------------------------------------------------------*/
+.feature {
+	margin-bottom: 30px;
+	display: block;
+
+	&.feature-1 {
+		min-height: 130px; 
+
+		.feature-content {
+			padding-left: 75px;
+			padding-top: 2rem;
+		}
+
+		.icon {
+			float: left;
+
+			&.icon-sm + .feature-content { padding-left: 55px; }
+			&.icon-lg + .feature-content { padding-left: 120px; }
+
+			&.icon-circle {
+				& + .feature-content { padding-left: 95px; }
+				&.icon-sm + .feature-content { padding-left: 64px; }
+				&.icon-lg + .feature-content { padding-left: 140px; }
+			}
+
+		}
+	}
+}
