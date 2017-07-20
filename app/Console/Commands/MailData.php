@@ -3,22 +3,24 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\jobs\MailTest;
+use Artisan;
 
-class LogDemo extends Command
+class MailData extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'log:demo';
+    protected $signature = 'mail:data';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Test Log';
+    protected $description = 'Data Mail';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,6 @@ class LogDemo extends Command
      */
     public function handle()
     {
-        \Log::info('Time : ' . \Carbon\Carbon::now('Asia/Taipei'));
+        //
     }
 }

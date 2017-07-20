@@ -12,7 +12,7 @@
 <div style="margin-left:2px;margin-bottom:10px;">
 	@foreach($tv as $key => $t)
 		@if($key == $chan)
-			<b><a href="/live/{{ $sport }}/{{ $key }}">{{ $key }}&nbsp</a></b>
+			<b><u><a href="/live/{{ $sport }}/{{ $key }}">{{ $key }}&nbsp</a></u></b>
 		@else
 			<a href="/live/{{ $sport }}/{{ $key }}">{{ $key }}&nbsp</a>
 		@endif

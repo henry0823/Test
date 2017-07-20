@@ -11,6 +11,7 @@ use App\Blog;
 use App\BlogComment;
 use App\BlogReply;
 use DB;
+use App\Jobs\MailTest;
 
 class BlogController extends Controller
 {
@@ -29,18 +30,20 @@ class BlogController extends Controller
 	}
 
 	public function store(Request $request)
-	{
+	{	
 		$data = array(
-				'user_id' => Auth::user()->id,
-				'title' => $request->title,
-				'content' => $request->content,
-				'created_at' => Carbon::now('Asia/Taipei'),
+			'user_id' => Auth::user()->id,
+			'title' => $request->title,
+			'content' => $request->content,
 			);
 
 		DB::table('blogs')
-				->insert($data);
+			->insert($data);
 
-		return redirect('/backend/blog');
+		$job = (new MailTest($request->title, $request->content));
+        dispatch($job);
+
+    	return redirect('backend/blog');
 	}
 
 	public function show($blog)

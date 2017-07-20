@@ -19,7 +19,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <body>
 <!-- Header -->
-<header id="header">
+<header id="header" style="width: 250px;">
     <!-- Navigation -->
     <nav id="nav-main">
         <ul class="nav nav-main-vertical">
@@ -31,13 +31,10 @@
 <!-- Header / End -->
 
 <!-- Content -->
-<div id="content">
-    <!-- Section / Intro -->
-    <section id="intro" class="section fullheight dark bg-primary">
-        <div class="container-custom">
-            @yield('content')
-        </div>
-    </section>
+<div id="content" class="section fullheight dark bg-primary">
+    <div class="container-custom">
+        @yield('content')
+    </div>
 </header>
 <!-- Content / End -->
 
@@ -48,7 +45,7 @@
 </header>
 
 <!-- Navigation Additional -->
-<nav id="nav-additional" class="bg-dark dark">
+<nav id="nav-additional" class="bg-dark dark" style="width: 250px;">
     <!-- 賽事列表 -->
     @foreach($sports as $key => $s)
         <h5 id="{{ $key }}" style="margin-bottom:5px; margin-top:10px;">{{ $s }}</h5>
