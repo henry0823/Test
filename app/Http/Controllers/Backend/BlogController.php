@@ -17,7 +17,7 @@ class BlogController extends Controller
 {
 	public function index()
 	{
-		$123 = DB::table('blogs')
+		$blogs = DB::table('blogs')
 				->where('blogs.user_id', Auth::user()->id)
 				->get();
 
