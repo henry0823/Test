@@ -26,7 +26,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('get:data')->everyTenMinutes();
-        // $schedule->command('mail:data')->everyMinute();
     }
 
     /**
