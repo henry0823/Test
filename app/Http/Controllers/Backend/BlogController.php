@@ -20,7 +20,7 @@ class BlogController extends Controller
 		$blogs = DB::table('blogs')
 				->where('blogs.user_id', Auth::user()->id)
 				->get();
-
+				
 		return view('backend.blog.index', compact('blogs'));
 	}
 
