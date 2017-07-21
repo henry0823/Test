@@ -20,7 +20,7 @@ class UserController extends Controller
 		$profile = DB::table('profiles')
 					->where('user_id', Auth::user()->id)
 					->first();
-
+		
 		return view('backend.user.index',compact('user','profile'));
 	}
 

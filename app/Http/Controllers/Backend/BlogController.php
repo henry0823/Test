@@ -12,6 +12,7 @@ use App\BlogComment;
 use App\BlogReply;
 use DB;
 use App\Jobs\MailTest;
+use Redis;
 
 class BlogController extends Controller
 {
@@ -21,6 +22,10 @@ class BlogController extends Controller
 				->where('blogs.user_id', Auth::user()->id)
 				->get();
 
+		$redis = new Redis;
+		$redis->connect('127.0.0.1', 6379);
+		$blog = $redis->set('blog', json_encode(Auth::user()->blogs));
+		// dd($blog);
 		return view('backend.blog.index', compact('blogs'));
 	}
 
@@ -60,7 +65,7 @@ class BlogController extends Controller
 				->where('blog_comments.blog_id', $blog->id)
 				->join('blog_replies', 'blog_comments.id', '=', 'blog_replies.blog_comment_id')
 				->get();
-		//dd($replies);
+
 		return view('backend.blog.show', compact('blog','comments','replies'));
 	}
 
