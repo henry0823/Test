@@ -22,10 +22,9 @@ class BlogController extends Controller
 				->where('blogs.user_id', Auth::user()->id)
 				->get();
 
-		$redis = new Redis;
-		$redis->connect('127.0.0.1', 6379);
-		$blog = $redis->set('blog', json_encode(Auth::user()->blogs));
-		// dd($blog);
+		// $redis = new Redis;
+		// $redis->connect('127.0.0.1', 6379);
+		// $blog = $redis->set('blog', json_encode(Auth::user()->blogs));
 		return view('backend.blog.index', compact('blogs'));
 	}
 

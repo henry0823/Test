@@ -105,7 +105,39 @@ class UserController extends Controller
 		return redirect('/backend/user');	
 	}
 
+////////////////// 討論區隨機登入 //////////////////
+	public function changeUser(Request $request)
+	{	
+		$userName = (Auth::user() == null) ? "Guest" : Auth::user();
 
+		return view('changeUser', compact('userName'));
+	}
+
+	public function userName(Request $request)
+	{	
+		$user = \DB::table('users')
+					->where('name', $request->user)
+					->first();
+
+		if($user != null)
+		{
+			Auth::loginUsingId($user->id);
+
+			return redirect('/backend/user');
+		}
+		else
+		{
+			return redirect('/error');
+		}
+	}
+
+	public function userRandom(Request $request)
+	{
+		$num = rand(0, 10);
+		Auth::loginUsingId($num);
+
+		return redirect('/backend/user');
+	}
 
 
 

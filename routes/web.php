@@ -15,12 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 隨機登入
+Route::get('/changeUser', 'backend\UserController@changeUser');
+Route::get('/changeUser/backend', 'backend\UserController@userName')->name('userName');
+Route::get('/changeUser/backend/user', 'backend\UserController@userRandom')->name('userRandom');
+// 直播
 Route::get('/live/index', 'VideoController@index');
 Route::get('/live', 'VideoController@video_list');
 Route::get('/live/{sport}/', 'VideoController@video_channel');
 Route::get('/live/{sport}/{channel}', 'VideoController@video_show');
+Route::get('/test', 'VideoController@test');
+// 討論區
+Route::resource('/forum', 'ForumController');
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\GetData::class,
-        \App\Console\Commands\MailData::class,
+        \App\Console\Commands\GetUrl::class,
     ];
 
     /**
@@ -25,7 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('get:data')->everyTenMinutes();
+        $schedule->command('get:data')->everyFiveMinutes();
+        // $schedule->command('get:url')->everyFiveMinutes();
     }
 
     /**

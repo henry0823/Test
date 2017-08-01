@@ -48,18 +48,20 @@
 <nav id="nav-additional" class="bg-dark dark" style="width: 250px;">
     <!-- 賽事列表 -->
     @foreach($sports as $key => $s)
-        <h5 id="{{ $key }}" style="margin-bottom:5px; margin-top:10px;">{{ $s }}</h5>
-        @if($channel[$key] != null)
-            <!-- 直播頻道 -->
-            @foreach($channel[$key] as $c)
-                <div style="display:none" id="channel{{ $key }}">
-                    <a href="/live/{{ $s }}/{{ $c['zbTitle'] }}">
-                    &nbsp&nbsp&nbsp{{ $c['zbTitle'] }}</a>
+        <div class="sport">
+            <h5 style="margin-bottom:5px; margin-top:10px;">{{ $s }}</h5>
+            @if($channel[$key] != null)
+                <!-- 直播頻道 -->
+                <div id="channel{{ $key }}" class="channel" style="display:none">
+                    @foreach($channel[$key] as $c)
+                        <a href="/live/{{ $s }}/{{ $c['zbTitle'] }}">
+                         {{ $c['zbTitle'] }}</a><br>
+                    @endforeach
                 </div>
-            @endforeach
-        @else
-            <div style="display:none" id="channel{{ $key }}">&nbsp&nbsp&nbsp目前無直播</div>
-        @endif
+            @else
+                <div id="channel{{ $key }}" class="channel" style="display:none">&nbsp&nbsp&nbsp目前無直播</div>
+            @endif
+        </div>
     @endforeach
 </nav>
 
@@ -76,15 +78,13 @@
     </div>
 </div>
 
-@foreach($sports as $key => $s)
-    <script>
-    $(document).ready(function(){
-        $("#{{ $key }}").click(function(){
-            $("[id=channel{{ $key }}]").toggle();
-        });
+<script>
+$(document).ready(function(){
+    $('h5').click(function(){
+        $(this).parent('div.sport').find('.channel').toggle(500);
     });
-    </script>
-@endforeach
+});
+</script>
 
 <!-- JS Plugins -->
 <script src="/plugins/jquery/dist/jquery.min.js"></script>
